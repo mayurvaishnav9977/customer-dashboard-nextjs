@@ -1,28 +1,43 @@
 🚀 Setup & Routes
 
 Clone the repository
+
 git clone https://github.com/your-username/customer-dashboard.git
+
 cd customer-dashboard
 
 
+
 Install dependencies
+
 npm install
 
+
 Run the development server
+
 npm run dev
 
 
 Open in browser
+
 Dashboard (Home) → http://localhost:3000  
 
+
 Shows summary cards (Total, Active, Inactive), search/filter controls, and customer table.
-Customer List → http://localhost:3000/customers  
+
+Customer List → http://localhost:3000/customers
+
 Displays all customers with search, filter,  and skeleton loader while loading.
 
-Customer Details → http://localhost:3000/customers/[id]  
-Example: http://localhost:3000/customers/1  
+
+Customer Details → http://localhost:3000/customers/[id]
+
+Example: http://localhost:3000/customers/1
+
 Shows details of a single customer with ability to toggle status (Activate/Deactivate).
+
 Includes skeleton loader while fetching.
+
 
 📂 Project Structure
 app/
@@ -67,6 +82,7 @@ package.json → Dependencies and scripts
 
 README.md → Project documentation
 
+
 ✨ Features
 Summary Cards: Show total, active, and inactive customers.
 
@@ -74,10 +90,10 @@ Search & Filter: Find customers by name or mobile, filter by status.
 
 Table: Displays customer list with sorting by name, city, or status.
 
-
 Skeleton Loaders: Smooth loading experience for table and details.
 
 Customer Details Page: View and toggle customer status.
+
 
 🛠️ Tech Stack
 Next.js  (App Router)
