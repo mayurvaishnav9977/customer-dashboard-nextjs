@@ -1,4 +1,5 @@
 🚀 Setup & Routes
+
 Clone the repository
 git clone https://github.com/your-username/customer-dashboard.git
 cd customer-dashboard
@@ -20,38 +21,51 @@ Displays all customers with search, filter,  and skeleton loader while loading.
 
 Customer Details → http://localhost:3000/customers/[id]  
 Example: http://localhost:3000/customers/1  
-Shows details of a single customer with ability to toggle status (Activate/Deactivate). Includes skeleton loader while fetching.
+Shows details of a single customer with ability to toggle status (Activate/Deactivate).
+Includes skeleton loader while fetching.
+
+📂 Project Structure
+app/
+
+page.tsx → Dashboard page (summary cards, search/filter, table)
+
+customers/
+
+page.tsx → Customer list page (search, filter, skeleton)
+
+[id]/
+
+page.tsx → Customer details page (toggle status, skeleton loader)
+
+components/
+
+Filter.tsx → Dropdown filter (All, Active, Inactive)
+
+SearchBar.tsx → Search input with styling
+
+Skeleton.tsx → Generic skeleton loader
+
+TableSkeleton.tsx → Skeleton loader for table
 
 
-customer-dashboard/
-├── app/
-│   ├── page.tsx                  # Dashboard page (summary cards, search/filter, table)
-│   ├── customers/
-│   │   ├── page.tsx              # Customer list page (search, filter, skeleton)
-│   │   └── [id]/page.tsx         # Customer details page (toggle status, skeleton loader)
-│
-├── components/
-│   ├── Filter.tsx                # Dropdown filter (All, Active, Inactive)
-│   ├── SearchBar.tsx             # Search input with styling
-│   ├── Skeleton.tsx              # Generic skeleton loader
-│   ├── TableSkeleton.tsx         # Skeleton loader for table
-│   ├── SummaryCard.tsx           # Reusable card for stats (Total, Active, Inactive)
-│   ├── Table.tsx                 # Customer table with sorting
-│  
-│
-├── context/
-│   └── CustomerContext.tsx       # Global state for customers + toggleStatus
-│
-├── ts/
-│   └── types.ts                  # TypeScript types (Customer interface)
-│
-├
-│── globals.css               # Tailwind base styles
-│
-├── tailwind.config.js            # Tailwind configuration
-├── package.json                  # Dependencies and scripts
-└── README.md                     # Project documentation
+SummaryCard.tsx → Reusable card for stats (Total, Active, Inactive)
 
+Table.tsx → Customer table with sorting
+
+
+context/
+
+CustomerContext.tsx → Global state for customers + toggleStatus
+
+ts/
+
+types.ts → TypeScript types (Customer interface)
+
+globals.css → Tailwind base styles
+
+package.json → Dependencies and scripts
+
+README.md → Project documentation
 
 ✨ Features
 Summary Cards: Show total, active, and inactive customers.
