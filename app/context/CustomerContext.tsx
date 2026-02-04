@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import { Customer } from "../ts/types";
 
 interface CustomerContextType {
@@ -13,12 +13,27 @@ const CustomerContext = createContext<CustomerContextType | undefined>(undefined
 const initialCustomers: Customer[] = [
   { id: 1, name: "Aman", mobile: "9876543210", city: "Jaipur", status: "active" },
   { id: 2, name: "B", mobile: "9123456780", city: "Delhi", status: "inactive" },
-  { id: 3, name: "Mayur", mobile: "9988776655", city: "udaipur", status: "active" },
+  { id: 3, name: "Mayur", mobile: "9988776655", city: "Udaipur", status: "active" },
   { id: 4, name: "Charlie Kumar", mobile: "9988776655", city: "Mumbai", status: "active" },
 ];
 
 export const CustomerProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [customers, setCustomers] = useState<Customer[]>(initialCustomers);
+  const [customers, setCustomers] = useState<Customer[]>([]);
+
+  // Load customers from localStorage or fallback to initial data
+  useEffect(() => {
+    const stored = localStorage.getItem("customers");
+    if (stored) {
+      setCustomers(JSON.parse(stored));
+    } else {
+      setCustomers(initialCustomers);
+    }
+  }, []);
+
+  // Save customers to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem("customers", JSON.stringify(customers));
+  }, [customers]);
 
   const toggleStatus = (id: number) => {
     setCustomers(prev =>
